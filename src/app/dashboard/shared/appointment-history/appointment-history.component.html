@@ -1,0 +1,41 @@
+<div>
+    <div class="add-header" *ngIf="IsPatientLoggedIn">
+        <button class="button-header" type="button" (click)="addAppointment()">+</button>
+    </div>
+    </div>
+    <div class="container">
+        <p-dataView #dv [value]="appointments">
+            <ng-template pTemplate="list" let-products>
+                <div class="grid grid-nogutter">
+                    <div class="col-12" *ngFor="let item of appointments; let first = first">
+                        <div class="flex flex-column xl:flex-row xl:align-items-start p-4 gap-4" [ngClass]="{ 'border-top-1 surface-border': !first }">
+                            <!-- <img class="w-9 sm:w-16rem xl:w-10rem shadow-2 block xl:block mx-auto border-round" [src]="'https://primefaces.org/cdn/primeng/images/demo/product/' + item.image" [alt]="item.name" /> -->
+                            <div class="flex flex-column sm:flex-row justify-content-between align-items-center xl:align-items-start flex-1 gap-4">
+                                <div class="flex flex-column align-items-center sm:align-items-start gap-3">
+                                    <div><div  class="text-2xl font-bold text-900">{{item.PatientName }}</div>
+                                </div>
+                                    <div class="flex align-items-center gap-3">
+                                        <div class="flex align-items-center gap-2">
+                                            <i class="pi pi-tag"></i>
+                                            <div class="text-2l font-bold text-900">{{"Appointment Id : "+ item.AppointmentId+",\n"}}</div>
+                                            <br><div class="text-2l font-bold text-900">{{"Vaccine Name : "+ item.VaccineName+","}}</div>
+                                            <br><div class="text-2l font-bold text-900">{{"Vaccine Center : "+ item.VaccinationCenterName}}</div>
+                                        </div>
+                                        <!-- <p-tag [value]="item.inventoryStatus" [severity]="getSeverity(item)"></p-tag> -->
+                                    </div>
+                                </div>
+                                <div class="flex sm:flex-column align-items-center sm:align-items-end gap-3 sm:gap-2">
+                                    <!-- <span class="text-2xl font-semibold">{{ '$' + item.price }}</span> -->
+                                    <div class="text-2l font-semibold text-900">{{"Date: "+ item.Date }}</div>
+
+                                     </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </ng-template>
+        </p-dataView>
+        
+    </div>
+    
+    

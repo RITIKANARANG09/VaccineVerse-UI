@@ -1,0 +1,61 @@
+<p-toast position="top-right"></p-toast>
+<div *ngIf="this.currentUserRole==='LocalAdmin'" class="add-bar">
+    <Button class="add-vaccine-button" (click)="AddVaccineLocally()"  class="button-class">Add</Button>
+    <div class="h-100" style="height: 90px;">
+    </div>
+</div>
+<div class="container">
+   
+    <p-dataView #dv [value]="vaccines">
+        <ng-template pTemplate="list" let-products>
+            <div class="grid grid-nogutter">
+                <div class="col-12" *ngFor="let item of vaccines; let first = first">
+                    <div class="flex flex-column xl:flex-row xl:align-items-start p-4 gap-2" [ngClass]="{ 'border-top-1 surface-border': !first }">
+                        <!-- <img class="w-9 sm:w-16rem xl:w-10rem shadow-2 block xl:block mx-auto border-round" [src]="'https://primefaces.org/cdn/primeng/images/demo/product/' + item.image" [alt]="item.name" /> -->
+                        <div class="flex flex-column sm:flex-row justify-content-between align-items-center xl:align-items-start flex-1 gap-1">
+                            <div class="flex flex-column align-items-center sm:align-items-start gap-3">
+                                <div class="text-2xl font-bold text-900">{{ item.VaccineName }}</div>
+                                <div class="flex align-items-center gap-3">
+                                    <span class="flex align-items-center gap-2">
+                                        <i class="pi pi-tag"></i>
+                                        <span class="font-semibold">{{"Min age : "+ item.MinAge}}</span>
+                                        <span class="font-semibold">{{"MaxAge : "+ item.MaxAge }}</span>
+                                    </span>
+                                    <!-- <p-tag [value]="item.inventoryStatus" [severity]="getSeverity(item)"></p-tag> -->
+                                </div>
+                            </div>
+                            <div class="flex sm:flex-column align-items-center sm:align-items-end gap-3 sm:gap-2" *ngIf= "this.currentUserRole==='LocalAdmin'">
+                                <!-- <span class="text-xl font-semibold">{{ 'Vaccine Count: ' + item.VaccineCount }}</span> -->
+                                <button pButton icon="pi pi-shopping-cart" class="button-class" (click)="UpdateVaccineCount(item)">Update</button>
+                                <div class="h-100" style="height: 90px;">
+                                    <p-dialog   [(visible)]="showUpdatePage" [modal]="true" [style]="{ width: '30vw' ,height:'22vw'}" [draggable]="false" [resizable]="false">
+                                        <div class="col-12 text-center">
+                                            <p-label class="text-900 text-4xl font-bold mb-3 text-#544891-500">Update Vaccine</p-label>
+                                        </div>
+                                      <br><br>
+                                      <div class="col-12 text-center">
+                                        <p-label class="text-900 text-2xl font-semibold mb-3 text-center">Vaccine Count : {{vcount}}</p-label>
+                                    </div>
+                                     
+                                      <br>
+                                        <button class="button2-class" type="button" (click)="OnIncreased()">+</button>
+                                        
+                                        <button class="button2-class" type="button" (click)="OnDecreased()">-</button>
+                                      <br><br><br>
+                                      <!-- <p-button label="Yes" class="p-button-success mr-1" (click)="CancelEvent(event.id)"></p-button>-->
+                                      <button class="button3-class" (click)="VaccineConfirmed()">Update</button> 
+                                    
+                                  </p-dialog>
+                                </div>
+                            </div>
+                            <div *ngIf="this.currentUserRole==='Patient'">
+                                <button type="button" class="vaccine-center-button" (click)="ViewVaccinationCenters(item)">View Centers</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </ng-template>
+    </p-dataView>
+</div>
+

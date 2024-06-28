@@ -1,0 +1,73 @@
+<p-toast position="top-right"></p-toast>
+<div *ngIf="this.currentUserRole==='GlobalAdmin'" class="add-bar">
+    <Button class="add-vaccine-button" (click)="AddVaccineClicked()">Add</Button>
+    <div class="h-100" style="height: 90px;">
+        <p-dialog  [(visible)]="showVaccineDialog" [modal]="true" [style]="{ width: '34vw' ,height:'28vw'}" [draggable]="false" [resizable]="false">
+            <div class="col-12 text-center">
+                <label class="text-900 text-4xl font-bold mb-3 custom">Add Vaccine</label>
+            <br><br></div>
+            <p-label  class="text-900 text-2xl font-bold mb-3 ">Vaccine Name</p-label><br>
+          <input class="w-full mb-3 py-2" type="text" placeholder="vaccine name" name="vname" [(ngModel)]="vname">
+          <br><br>
+          <p-label class="text-900 text-2xl font-bold mb-3 ">Min Age</p-label><br>
+          <input class="w-full mb-3 py-2" type="number" placeholder="min age" name="minAge" [(ngModel)]="minAge">
+          <br><br>
+          <p-label class="text-900 text-2xl font-bold mb-3 ">Max Age</p-label><br>
+          <input class="w-full mb-3 py-2" type="number" placeholder="max age" name="maxAge" [(ngModel)]="maxAge">
+          <!-- <p-button label="Yes" class="p-button-success mr-1" (click)="CancelEvent(event.id)"></p-button>-->
+          <br><br><button class="button-class" (click)="VaccineConfirmedGlobally()">Add</button> 
+        
+      </p-dialog>
+    </div>
+</div>
+<div class="container">
+    <p-dataView #dv [value]="vaccines">
+        <ng-template pTemplate="list" let-products>
+            <div class="grid grid-nogutter">
+                <div class="col-12" *ngFor="let item of vaccines; let first = first">
+                    <div class="flex flex-column xl:flex-row xl:align-items-start p-4 gap-4" [ngClass]="{ 'border-top-1 surface-border': !first }">
+                        <!-- <img class="w-9 sm:w-16rem xl:w-10rem shadow-2 block xl:block mx-auto border-round" [src]="'https://primefaces.org/cdn/primeng/images/demo/product/' + item.image" [alt]="item.name" /> -->
+                        <div class="flex flex-column sm:flex-row justify-content-between align-items-center xl:align-items-start flex-1 gap-4">
+                            <div class="flex flex-column align-items-center sm:align-items-start gap-3">
+                                <div class="text-2xl font-bold text-900">{{ item.VaccineName }}</div>
+                                <div class="flex align-items-center gap-3">
+                                    <span class="flex align-items-center gap-2">
+                                        <i class="pi pi-tag"></i>
+                                        <span class="font-semibold">{{"Min age : "+ item.MinAge}}</span>
+                                        <span class="font-semibold">{{"MaxAge : "+ item.MaxAge }}</span>
+                                    </span>
+                                    <!-- <p-tag [value]="item.inventoryStatus" [severity]="getSeverity(item)"></p-tag> -->
+                                </div>
+                            </div>
+                            <div *ngIf="isUserLoggedIn===true">
+                                <div class="flex sm:flex-column align-items-center sm:align-items-end gap-3 sm:gap-2" *ngIf= "this.currentUserRole!='Patient'">
+                                    <!-- <span class="text-2xl font-semibold">{{ '$' + item.price }}</span> -->
+                                    <button *ngIf="this.currentUserRole==='LocalAdmin'" pButton icon="pi pi-shopping-cart" class="button-class" (click)="AddVaccineLocally(item)">Add</button>
+                                    
+                                    <div class="h-100" style="height: 90px;" *ngIf="this.currentUserRole==='GlobalAdmin'">
+                                        <p-dialog header="Add vaccine" [(visible)]="showForm" [modal]="true" [style]="{ width: '40vw' ,height:'60vw'}" [draggable]="false" [resizable]="false">
+                                        
+                                            <!-- <label>Select date and time for appointment : </label> -->
+                                            <!-- <p-calendar [(ngModel)]="date" [showTime]="true" [showSeconds]="true" [style]="{ width: '34vw' ,height:'2.5vw'}"></p-calendar> -->
+                                          <p-label>Vaccine Count</p-label>
+                                          
+                                            <p-button type="button" (click)="IncreasedVaccineCount()">+</p-button>
+                                            <p-label>{{'\t'+vaccineCount+'\t'}}</p-label>
+                                            <p-button type="button" (click)="DecreasedVaccineCount()">-</p-button>
+                                          
+                                          <!-- <p-button label="Yes" class="p-button-success mr-1" (click)="CancelEvent(event.id)"></p-button>-->
+                                          <p-button label="Add" (click)="VaccineConfirmed()"></p-button> 
+                                        
+                                      </p-dialog>
+                                    </div>
+                                </div>
+                            </div>
+                           
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </ng-template>
+    </p-dataView>
+</div>
+

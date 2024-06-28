@@ -1,0 +1,18 @@
+<nav class="header">
+    <div class="app-header-navbar">
+        <a class="logo">
+            <h2>VaccineVerse</h2>
+        </a>
+
+       
+
+        <div class="collapse navbar-collapse" id="navbarButtonsExample">
+            <div class="header-right">
+                <button class="app-button" (click)="navigateDashboard()" *ngIf="this.userId!='null'">Dashboard</button>
+                <button type="button" class="app-button" routerLink="/">Home</button>
+                <!-- <button type="button" class="app-button" *ngIf="this.currentUserRole !== 'Patient' && this.currentUserRole !== 'LocalAdmin' && this.currentUserRole !== 'GlobalAdmin'" (click)="login()">Login</button> -->
+                <button type="button" class="app-button" *ngIf="this.userId!='null'" (click)="logout()">Logout</button>
+            </div>
+        </div>
+    </div>
+</nav>

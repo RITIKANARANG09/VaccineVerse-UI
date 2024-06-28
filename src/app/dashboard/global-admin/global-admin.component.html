@@ -1,0 +1,21 @@
+<div class="container py-3">
+    <div *ngFor="let option of options">
+      <p-card header="{{ option.header }}" subheader="{{ option.subheader }}">
+        <ng-template pTemplate="header">
+          <div class="image-container">
+            <img [src]="option.image" class="img-fluid" alt="icon" />
+          </div>
+        </ng-template>
+        <p>
+          {{ option.description }}
+        </p>
+        <ng-template pTemplate="footer">
+          <button
+          class="view-button-class"
+            (click)="navigation(option.id)"
+          >{{ option.labelButton }}</button>
+        </ng-template>
+      </p-card>
+    </div>
+  </div>
+

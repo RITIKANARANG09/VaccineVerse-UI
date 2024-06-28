@@ -1,0 +1,240 @@
+.myClass{
+  
+    background-color: #f8f9fa;
+    /* padding-top: 50px; */
+    max-width: 100%;
+  }
+  
+  .gradient-custom {
+    /* fallback for old browsers */
+    background: #48c6ef;
+  
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: -webkit-linear-gradient(to right, rgba(72,198,239,0.5), rgba(111,134,214,0.5));
+  
+  }
+  
+  .app-button{
+    background-color: #5b4da9;
+    border: none;
+    color: white;
+    border-radius: 2px;
+    margin-right: 4px;
+    height: 40px;
+    width: 80px;
+  }
+  
+  /* DEMO-SPECIFIC STYLES */
+  .typewriter h1 {
+    font-size: 4rem;
+    color: #000;
+    overflow: hidden; /* Ensures the content is not revealed until the animation */
+    border-right: .15em solid ; /* The typwriter cursor */
+    white-space: nowrap; /* Keeps the content on a single line */
+    margin: 0 auto;
+    letter-spacing: .15em; /* Adjust as needed */
+    animation: 
+      typing 3.5s steps(20, end),
+      blink-caret .5s step-end infinite;
+  }
+  
+  /* The typing effect */
+  @keyframes typing {
+    from { width: 0 }
+    to { width: 100% }
+  }
+  
+  /* The typewriter cursor effect */
+  @keyframes blink-caret {
+    from, to { border-color: transparent }
+    50% { border-color: black }
+  }
+
+  
+.image-class{
+  max-width:600px;
+  height: 400px;
+  margin-left: 10%;
+  display: grid;
+  
+}
+.text-container {
+  display: flex;
+  text-align: center;
+  padding: 20px;
+  color: #5b4da9;
+  font-size: larger;
+ 
+}
+  .button {
+    position: absolute;
+    top: 16%;
+    left: 95%;
+    width: 160px;
+    height: 50px;
+    transform: translate(-50%, -50%);
+    padding: 10px 20px;
+    background-color: #f3f4f6;
+    color: #464343;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    text-align: center;
+    text-decoration:solid;
+    z-index: 1;
+  }
+
+.descriptionContainer{
+  height: 570px;
+}
+
+ .app-card{
+  height: 380px;
+  margin-right: 100px;
+  width: 14%;
+ }  
+
+  :host ::ng-deep .p-card-header { 
+    border-radius: 10px !important; 
+    color: white; 
+    font-size: 16px; 
+    font-weight: bold; 
+    
+    /* text-align: center;  */
+    /* padding: 10px;  */
+} 
+:host ::ng-deep .p-card .p-card-subtitle { 
+    color: black !important;    
+} 
+:host ::ng-deep .p-card .p-card-content { 
+    flex-grow: 1;
+    font-size: 10px; 
+    color: black;
+ 
+} 
+:host ::ng-deep .p-card .p-card-footer { 
+    display: flex; 
+    justify-content: center; 
+} 
+:host ::ng-deep .p-button.p-element { 
+    margin-right: 5px; 
+}
+
+:host ::ng-deep .p-card .image-container {
+    height: 200px; 
+    overflow: hidden; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+:host ::ng-deep .p-card .image-container img {
+    width: 100%;
+    height: 120px;
+}
+
+
+
+
+.my-container{
+    margin-top: 100px;
+    margin-bottom: 3px; 
+    height: 480px;
+} 
+
+
+
+:host ::ng-deep .p-card {
+    border-radius: 10px !important;
+    width: 100%; 
+    height: 100%;
+    border: none;
+    display: flex;
+  
+    flex-direction: column;
+}
+
+
+.container {
+    display: flex;
+    align-items: stretch;
+    justify-content: center;
+    /* flex-wrap: wrap;
+    flex-direction: row; */
+    margin-right: 20px;
+}
+
+.center-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.option {
+  display: flex;
+  align-items: stretch; 
+  justify-content: center;
+}
+
+
+:host ::ng-deep .p-card {
+    margin: 2px;
+}
+
+.card{
+  height: 380px;
+  margin-right: 0px;
+  width: 14%;
+  border: none;
+  margin-right: 80px;
+   
+}
+
+
+
+
+@media only screen and (max-width: 700px) {
+    :host ::ng-deep .p-card {
+        max-width: none;
+      padding-right: 2px;
+    }
+}
+
+.app-details{
+  background-color: #ecf0f1;
+}
+
+.image-container {
+  position: relative;
+  display: inline-block;
+  width:100%; /* Ensures the image doesn't exceed the width of its container */
+  max-height: 89vh; /* Ensures the image doesn't exceed the height of the viewport */
+ 
+}
+
+.button {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 10px 20px;
+  background-color: #5b4da9;
+  color: #fff;
+  text-decoration: none;
+  border: none;
+  border-radius: 5px;
+}
+
+.button:hover {
+  background-color: #e5e8eb;
+  color: #464343;
+}
+
+.app-image{
+  /* max-width: 100%; */
+  width:100%; /* Ensures the image doesn't exceed the width of its container */
+  max-height: 89vh; /* Ensures the image doesn't exceed the height of the viewport */
+  display: grid; /* Ensures the image behaves as a block element */
+ 
+  }

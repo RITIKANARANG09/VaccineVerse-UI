@@ -1,0 +1,44 @@
+
+<div class="container">
+    <p-dataView #dv [value]="vaccinationCenters">
+        <ng-template pTemplate="list" let-products>
+            <div class="grid grid-nogutter">
+                <div class="col-12" *ngFor="let item of vaccinationCenters; let first = first">
+                    <div class="flex flex-column xl:flex-row xl:align-items-start p-4 gap-4" [ngClass]="{ 'border-top-1 surface-border': !first }">
+                        <!-- <img class="w-9 sm:w-16rem xl:w-10rem shadow-2 block xl:block mx-auto border-round" [src]="'https://primefaces.org/cdn/primeng/images/demo/product/' + item.image" [alt]="item.name" /> -->
+                        <div class="flex flex-column sm:flex-row justify-content-between align-items-center xl:align-items-start flex-1 gap-4">
+                            <div class="flex flex-column align-items-center sm:align-items-start gap-3">
+                                <div class="text-2xl font-bold text-900">{{ item.VaccineCenterName + " VaccineCenter"}}</div>
+                                <div class="flex align-items-center gap-3">
+                                    <span class="flex align-items-center gap-2">
+                                        <i class="pi pi-tag"></i>
+                                        <span class="font-semibold">{{item.VaccineCenterAddress}}</span>
+                                        <!-- <p-calendar [(ngModel)]="date" [showTime]="true" [showSeconds]="true"></p-calendar> -->
+                                    </span>
+                                    <!-- <p-tag [value]="item.inventoryStatus" [severity]="getSeverity(item)"></p-tag> -->
+                                </div>
+                            </div>
+                            <div class="flex sm:flex-column align-items-center sm:align-items-end gap-3 sm:gap-2" *ngIf="this.currentUser==='Patient'">
+                                <!-- <span class="text-2xl font-semibold">{{ '$' + item.price }}</span> -->
+                                
+                                <button pButton icon="pi pi-shopping-cart"  class="button-class" (click)="BookAppointment(item)">Book Appointment</button>
+                                <div class="h-100">
+                                    <p-dialog header="Book Appointment" [(visible)]="showBookAppointmentDialog" [modal]="true" [style]="{ width: '20vw' ,height:'20vw'}" [draggable]="false" [resizable]="false">
+                                    
+                                       <label for="timing" class="block text-900 font-medium mb-2">Timing: </label>
+                                        <input id="timing" type="datetime-local" class="w-full mb-3" name="timing" [(ngModel)]="timing">
+                                        <div class="app-book-appointment" >                            
+                                        <p-button label="Book" (click)="AppointmentConfirmed()"></p-button> 
+                                        </div>                     
+                                  </p-dialog>
+                                </div>
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </ng-template>
+    </p-dataView>
+    
+</div>

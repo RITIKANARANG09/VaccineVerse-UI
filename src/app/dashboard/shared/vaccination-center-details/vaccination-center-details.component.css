@@ -1,0 +1,41 @@
+#timing{
+    height: 2.5vw;
+    border-radius: 5%;
+}
+.app-book-appointment{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+     
+      height: 10%;
+      width: 50%;
+}
+.container {
+    border: 2px solid #e1dada; /* Add border */
+    margin: 0px 20px;
+}
+.add-header{
+    margin: 0px 20px;
+    background-color:#f1f1f1;
+    
+    height: 40px;
+    width: 100%;
+    align-items: flex-end;
+}
+.button-header{
+    height: 100%;
+    width: 80px;
+    border-radius: 1px;
+    background-color:#544891;
+    border: none;
+    color: white;
+    align-self: self-end;
+    
+}
+
+.button-class
+{
+    background-color: #544891;
+
+}
+

@@ -1,0 +1,78 @@
+<div class="image-container" ><img src="..\..\assets\vaccineImage.webp" alt="">
+</div>
+<div class="myClass">
+    
+    <div class="full-container">
+        <div >
+          <!-- Title and buttons on the left side -->
+          
+          <div class="col-md-6">
+            <div class="text-center">
+             <div class="typewriter">
+              
+            
+      
+            <div class="text-center mt-4">
+
+              <div class="my-container">   
+                <div class="option py-3">
+                    <div class="card" *ngFor="let option of options">
+                    <p-card header="{{ option.header }}" subheader="{{ option.subheader }}">
+                      <ng-template pTemplate="header">
+                        <div class="image-container">
+                          <img [src]="option.image" class="img-fluid" alt="icon" />
+                        </div>
+                        
+                    </ng-template>
+                    <div>
+                      <button type="button" class="app-button"  (click)="viewDetails(option.id)">{{option.description}}</button>
+                    </div>  
+                  </p-card>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+              
+      
+          
+          <div class="row" style="height: 400px; margin-top: 30px; margin-bottom: 150px;">
+            <div class="col-md-7 col-lg-7 text-container">
+                <img class="image-class" src="../../assets/istockphoto-1322275325-612x612.jpg" alt="">
+                <span > <h2 style="margin-left: 140px;  padding-top: 80px;">Vaccinate with ease, our center's expertise!</h2>
+                  <p style="margin-left: 140px;">Your one-stop destination for hassle-free vaccinations, Where safety meets convenience.</p></span>
+            </div>
+           
+        </div>
+
+
+
+        <!-- Information Section -->
+        <div style="margin-top: 60px;">
+          <div class="app-details ">
+            <div style="color: rgb(255, 255, 255);  background-color:#c1c7c9; padding: 10px;">
+                <h1> Get yourself vaccinated in 3 easy steps</h1> 
+            </div>
+            
+             <div class="my-container">   
+                <div class="container py-3">
+                    <div class="app-card" *ngFor="let option of descriptions">
+                    <p-card header="{{ option.header }}" subheader="{{ option.subheader }}">
+                      <ng-template pTemplate="header">
+                        <div class="image-container">
+                          <img [src]="option.image" class="img-fluid" alt="icon" />
+                        </div>
+                    </ng-template>
+                    </p-card>
+                  </div>
+                </div>
+              </div>
+          </div>
+          
+          
+      <!-- </div>
+      <div style="color: rgb(255, 255, 255);  background-color:#c1c7c9; height: 20px;"></div>
+      
+      </div> -->
+      
+</div>
